@@ -8,7 +8,7 @@ public class PedidoInternacional extends Pedido{
     public PedidoInternacional(int id, String cliente, double monto, double aduana, String pais){
         super(id, cliente, monto);
         costoAduana = aduana;
-        pais=pais;
+        this.pais = pais;
     }
 
     public String getTipo(){

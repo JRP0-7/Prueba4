@@ -9,12 +9,9 @@ public class GestorPedidos {
         cantidad = 0;
     }
 
-    public void AgregarPedido(Pedido dato) throws CapacidadExcedidaException, PedidoNoEncontradoException {
+    public void AgregarPedido(Pedido dato) throws CapacidadExcedidaException {
         if (cantidad == pedidos.length) {
             throw new CapacidadExcedidaException(pedidos.length);
-        }
-        if(buscarPorId(dato.id)!=null){
-            System.out.println("El pedido ya se encuentra registrado");
         }
         pedidos[cantidad] = dato;
         cantidad++;
@@ -33,12 +30,10 @@ public class GestorPedidos {
             throws PedidoNoEncontradoException, TransicionEstadoInvalidaException {
         Pedido pedido = buscarPorId(id);
         EstadoPedido estadoActual = pedido.getEstado();
-        try {
-            estadoActual.puedeTransicionarA(nuevoEstado);
-            pedido.setEstado(nuevoEstado);
-        } catch (Exception e) {
+        if (!estadoActual.puedeTransicionarA(nuevoEstado)) {
             throw new TransicionEstadoInvalidaException(estadoActual, nuevoEstado);
         }
+        pedido.setEstado(nuevoEstado);
     }
 
     public Pedido[] listarPorEstado(EstadoPedido estado){
@@ -52,7 +47,7 @@ public class GestorPedidos {
         }
 
         Pedido[] lista = new Pedido[cPedidos];
-        for (int i = 0; i < lista.length; i++) {
+        for (int i = 0; i < cantidad; i++) {
             if (pedidos[i].getEstado() == estado) {
                 lista[cP] = pedidos[i];
                 cP++;

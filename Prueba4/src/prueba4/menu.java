@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class Menu {
 
-    public static void Main(String[] args) throws Exception {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        GestorPedidos gestor = new GestorPedidos(10);
+        GestorPedidos g = new GestorPedidos(10);
         int opcion;
 
         do {
@@ -26,6 +26,7 @@ public class Menu {
                     PedidoNacional p = null;
                     System.out.println("Ingrese el id del pedido");
                     int id = sc.nextInt();
+                    sc.nextLine();
                     System.out.println("Ingrese el cliente dueño del pedido");
                     String cliente = sc.nextLine();
                     System.out.print("Monto: ");

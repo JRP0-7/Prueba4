@@ -1,7 +1,5 @@
 package prueba4;
 
-import java.security.DrbgParameters.Capability;
-
 public enum EstadoPedido {
     PENDIENTE("Pedido registrado, esperando procesamiento", false, 1),
     PROCESANDO("Pedido siendo preparado", false, 2),
