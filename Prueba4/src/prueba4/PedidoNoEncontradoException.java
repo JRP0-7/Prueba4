@@ -1,4 +1,4 @@
-package Enum;
+package prueba4;
 
 public class PedidoNoEncontradoException extends Exception{
     public PedidoNoEncontradoException(int id){

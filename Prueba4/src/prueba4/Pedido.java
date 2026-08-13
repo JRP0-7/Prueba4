@@ -1,4 +1,4 @@
-package Enum;
+package prueba4;
 
 public abstract class Pedido {
     protected final int id;
@@ -26,7 +26,7 @@ public abstract class Pedido {
         return estado;
     }
 
-    public void setEstado(){
+    public void setEstado(EstadoPedido estado){
         this.estado=estado;
     }
 
@@ -35,6 +35,6 @@ public abstract class Pedido {
 
     @Override
     public String toString(){
-        return "Pedido#"+id+"["+getTipo()+", "+cliente+", $"+monto+", envio: $"+calcularCostoEnvio()
-        +", "+estado+" - "+estado.getDescripcion()+"]";    }
+        return "Pedido#"+id+", Tipo:"+getTipo()+", Cliente"+cliente+", $"+monto+", envio: $"+calcularCostoEnvio()
+        +", Estado Actual:"+estado+" - "+estado.getDescripcion()+"]";    }
 }

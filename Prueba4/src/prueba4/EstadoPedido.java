@@ -1,4 +1,4 @@
-package Enum;
+package prueba4;
 
 import java.security.DrbgParameters.Capability;
 
@@ -27,7 +27,7 @@ public enum EstadoPedido {
         return descripcion;
     }
 
-    public boolean transicionarA(EstadoPedido nuevoEstado) {
+    public boolean puedeTransicionarA(EstadoPedido nuevoEstado) {
         if (this.esFinal) {
             return false;
         }
@@ -56,4 +56,5 @@ public enum EstadoPedido {
         }
         return valido;
     }
+
 }
